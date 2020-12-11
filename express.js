@@ -23,8 +23,8 @@ var app = express(); // Creating application object
 // Setting up the middleware functions //
 //********************************************************************************//
 var  HTTP_PORT =process.env.PORT || 8080;
-app.use(bodyParser.urlencoded({vsdv
-    extended: falsesdvsd
+app.use(bodyParser.urlencoded({
+    extended: false
 })); // Setting project configuration
 app.use(bodyParser.json()); // Converting any upcoming  json data
 
