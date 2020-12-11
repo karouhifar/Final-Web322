@@ -29,16 +29,18 @@ var router = require("./Models/router"); // Exporting from 'router.js'
 
 
 var MongoStore = require('connect-mongo')(session); // Connection to database to store the database
+// require("dotenv").config({
+//     path: 'config_modules/.env'
+// });
 
-
-require("dotenv").config({
-  path: 'config_modules/.env'
-});
 
 var app = express(); // Creating application object
 // Setting up the middleware functions //
 //********************************************************************************//
 
+var Database_URL = "mongodb+srv://kamyab14:Javad12345@senecaweb.6mcmr.mongodb.net/assignment?retryWrites=true&w=majority";
+var userEmail = "web322.kamyab@gmail.com";
+var PasswordEmail = "Javad12345$";
 var HTTP_PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({
   extended: false
@@ -60,7 +62,7 @@ app.use(session({
 })); //                  MONGO CONNECTION                    //
 //--------------------------------------------------------
 
-mongoose.connect(process.env.Database_URL, {
+mongoose.connect(Database_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true
@@ -91,8 +93,8 @@ app.use("/", router);
 module.exports.transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.userEmail,
-    pass: process.env.PasswordEmail
+    user: userEmail,
+    pass: PasswordEmail
   }
 }); //********************************************************************************//
 // ***********************     WE CHANGED TO MVC PATTERN     *************************************************//
