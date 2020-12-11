@@ -2,6 +2,8 @@
 
 ### This part is for admin-user
 
+Simply for email, please use "karouhifar@gmail.com" Password : "Javad12345"
+
 {"_id":{"$oid":"5fc872bef19b47875c0613c6"},
 "type":"Admin",
 "Fname":"Kamyab",
@@ -15,6 +17,8 @@
 
 ### This part is for normal user
 ------------------------------------------------------------------------------------
+
+Simply for email, please use "kamyabrouhifar14@gmail.com" Password : "Javad12345"
 
 {"_id":{"$oid":"5fd317c4fe07c20017dfc283"},
 "type":"user",
