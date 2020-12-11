@@ -1,7 +1,7 @@
 ##  Final-Web322
 
 ### This part is for admin-user
-**
+
 {"_id":{"$oid":"5fc872bef19b47875c0613c6"},
 "type":"Admin",
 "Fname":"Kamyab",
@@ -25,6 +25,6 @@
 "password":"$2a$10$m6i5tYLB8.bV71cfyiRTLe8jFfEVZ6XksMciVDz49GNWMnymaN2tC",
 "privacy":true,
 "__v":{"$numberInt":"0"}}
-**
+
 -------------------------------------------------------------------------------------
 # Heroku Website (https://quiet-plains-86274.herokuapp.com/)
