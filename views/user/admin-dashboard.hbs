@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../data/CSS5/style5.css" />
+</head>
+
+<body onload="myFunction()">
+    {{> header userInfo}}
+    <div class="result_upload">
+        <p>{{ message }}</p>
+    </div>
+    {{#if error}}
+
+    <h2> {{ error }}</h2>
+
+    {{/if}}
+    <h1>Hello Admin Mr/Mrs {{userInfo.Fname}} {{userInfo.Lname}}</h1>
+    <form action="/dashboard" method="POST" enctype="multipart/form-data">
+
+        <h1><strong>File upload</strong> For your Room List</h1>
+
+        <div class="form-group">
+            <label for="caption">Caption <span>This caption should be your title</span></label>
+            <input type="text" name="caption" id="caption" class="form-controll" required />
+        </div>
+        <div class="form-group">
+            <label for="description">Description<span>Give a brief summary about House</span></label>
+            <input type="text" name="description" id="description" class="form-controll" required />
+        </div>
+        <div class="form-group">
+            <label for="price">Price<span>Show the House price per night</span></label>
+            <input type="text" name="price" id="price" class="form-controll" required />
+        </div>
+        <div class="form-group">
+            <label for="Bedroom">Bedroom<span>How many Bedroom the House has</span></label>
+            <input type="text" name="Bedroom" id="Bedroom" class="form-controll" required />
+        </div>
+        <div class="form-group">
+            <label for="Bathroom">Bathroom<span>How many Bathroom the House has</span></label>
+            <input type="text" name="Bathroom" id="Bathroom" class="form-controll" required />
+        </div>
+        <div class="form-group">
+            <label for="WiFi">WiFi<span>Has the house access to Internet WiFi <strong style="color: yellow;">(YES /
+                        NO)</strong></span></label>
+            <input type="text" name="WiFi" id="WiFi" class="form-controll" required />
+        </div>
+        <div class="form-group">
+            <label for="location">Location<span>location of the house</span></label>
+            <input type="text" name="location" id="location" class="form-controll" required />
+        </div>
+
+        <div class="form-group file-area">
+            <label for="images">Images <span>Your images should be at least 400x300 wide</span></label>
+            <input type="file" name="images" id="images" onchange="myFunction()" required="required" />
+            <div class="file-dummy">
+                <div id="default"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Upload images and information</button>
+        </div>
+
+    </form>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("images");
+            var txt = "";
+            if ('files' in x) {
+                if (x.files.length == 0) {
+                    txt = "Choose your photo";
+                } else {
+                    for (var i = 0; i < x.files.length; i++) {
+
+                        if ('name' in x.files[i]) {
+                            txt += "<strong>PhotoName: </strong>" + x.files[i].name + "<br>";
+                        }
+                        else {
+                            txt += "No name <br>";
+                        }
+                        if ('size' in x.files[i]) {
+
+                            var sizeInMB = (x.files[i].size / (1024 * 1024)).toFixed(2);
+                            txt += "<strong>Size: </strong>" + sizeInMB + " MB  <br>";
+                        }
+                        else {
+                            txt += "No size <br>";
+                        }
+                    }
+                }
+            }
+
+            document.getElementById("default").innerHTML = txt;
+        }
+    </script>
+</body>
+
+</html>

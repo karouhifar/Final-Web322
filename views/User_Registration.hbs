@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User_Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="data/CSS3/style3.css" />
+
+    {{> style}}
+</head>
+
+<body>
+
+    {{>header  userInfo}}
+    {{#if errors }}
+    {{#each errors }}
+    <div class="dark fire">
+        <h1 class="Blazing"> {{ this.msg }}</h1>
+    </div>
+    {{/each}}
+    {{/if}}
+    {{#if LoginErrors }}
+    {{#each LoginErrors }}
+    <div class="dark fire">
+        <h1 class="Blazing"> {{ this.msg }}</h1>
+    </div>
+    {{/each}}
+    {{/if}}
+    {{#if  LoginMismatchErrors }}
+
+    <div class="dark fire">
+        <h1 class="Blazing"> {{ LoginMismatchErrors}}</h1>
+    </div>
+
+    {{/if}}
+    {{#each databaseErrors}}
+
+    <div class="dark fire">
+        <h1 class="Blazing"> {{this}}</h1>
+    </div>
+
+    {{/each}}
+    {{#if Info}}
+    <div class="dark fire" style="width:auto;">
+        <h1 class="Blazing" style="line-height: normal;">
+            <p>{{Info}}</p>
+        </h1>
+    </div>
+    {{/if}}
+
+    <main class="Main_register">
+        <aside class="aside_area">
+            <div class="error">
+                <h5>Password must contain the following:</h5>
+                <p id="letter" class="invalid">A <b>lowercase</b> letters<span id="answer"></span></p>
+                <p id="capital" class="invalid">A <b>capital</b> letters<span id="answer2"></span></p>
+                <p id="number" class="invalid">A <b>number</b><span id="answer3"></span></p>
+                <p id="length" class="invalid">Minimum <b>6 to 12 characters</b><span id="answer4"></span></p>
+            </div>
+
+        </aside>
+        {{#unless  userInfo}}
+        <div class="admin">
+            <p> If you are User-admin please clink <a href="/login_admin_access">login_admin</a></p>
+        </div>
+        {{/unless}}
+        <div class="Form-detail">
+            {{#if  userInfo}}
+            <h2>Welcome back to your account Mr/Mrs {{userInfo.Fname}}</h2>
+
+            {{else}}
+            <div class="button_detail">
+                <div class="color"></div>
+                <button type="button" class="log_in" onclick="login()">Log In</button>
+                <button type="button" class="Register" onclick="register()">Register</button>
+            </div>
+            <div class="Social_media">
+
+                <p id="Social_desc"><span id="A" class="changing_word">You can login with</span><span id="B"
+                        class="changing_word">You can register with</span> <br />
+                    <a id="brand_icon" href="www.google.com" class="fa fa-google"><span>Google</span></a> or
+                    <a id="brand_icon" href="www.facebook.com" class="fa fa-facebook"><span>Facebook</span></a>
+                </p>
+            </div>
+            <div class="contact_img">
+                <img src="data/img/contact.jpg" alt="contact" />
+            </div>
+            <form id="login" class="html_form" action="/login" method="post"
+                enctype="application/x-www-form-urlencoded">
+                <input type="email" class="input-txt" name="Email" placeholder="Email Address">
+                <input type="password" class="input-txt" name="Password" placeholder=" Enter Password">
+                <button type="submit" class="submitting">Log in</button>
+            </form>
+            <form name="User_Registration_data" id="register" class="html_form" action="/User_Registration_data"
+                method="POST" onsubmit="return validating()" enctype="application/x-www-form-urlencoded">
+                <input type="text" class="input-txt" name="email" placeholder="Email Address">
+                <p id="email_err"></p>
+                <input type="text" class="input-txt" id="First_name" name="Fname" placeholder="First name">
+                <input type="text" class="input-txt" id="Last_name" name="Lname" placeholder="Last name">
+                <input type="password" id="Password" class="input-txt" name="password" placeholder="Create Password">
+                <p id="password_err"></p>
+                <div class="pattern">
+                    <label for="birthday">Birthday age:</label>
+                    <p>To sign up, You need to be at least 18 years old</p>
+                    <input type="date" id="birthday" class="input-txt" name="age">
+                </div>
+                <button type="submit" class="submitting" value="submit">Register</button>
+            </form>
+            {{/if}}
+        </div>
+
+    </main>
+
+    {{>footer}}
+
+    <script src="data/JS3/login-register.js"></script>
+    <script src="data/JS3/html_valid.js"></script>
+</body>
+
+</html>

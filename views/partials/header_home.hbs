@@ -1,0 +1,122 @@
+<header class="background">
+    <div class="flex">
+        <div class="image">
+            <img id="image" src="../data/img/header.jpg" alt="House" />
+            <h1 class="welcome">Welcome to KamiB&amp;B</h1>
+
+            <img id="image1" src="../data/img/logo.png" alt="logo" />
+        </div>
+    </div>
+
+    <nav class="Main_nav">
+        <nav id="one">
+            <div style="background-color: wheat; border: rgb(7, 255, 7) 3px outset">
+                <div class="nav_1">
+                    <ul id="list">
+                        <li style="background-color: chartreuse;"><a href="/" style="color: white;">Home</a></li>
+                        <li><a href="/Room_list">Room_list</a></li>
+                        <li><a href="/User_Registration">Registration</a></li>
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div class="Time_template">
+                <div>
+                    <span id="Time">Time: </span>
+
+                    <span id="result"> </span>
+                    <br />
+                </div>
+                <div>
+                    <span id="Time2">Date: </span>
+
+                    <span id="result2"> </span>
+                </div>
+            </div>
+        </nav>
+
+        <nav id="two">
+            <div class="Intro">
+                <div class="Shiny">
+                    <span class="text_content">kamib&b</span>
+                    <span class="gradient-line"></span>
+                    <span class="dodge"></span>
+                </div>
+                <div class="Intro_2">
+                    <h4>“People don't take trips, trips take people.”</h4>
+                    <p>
+                        This website can make easy accessible way to find proper place to
+                        stay.
+                    </p>
+                </div>
+            </div>
+            <!-- ******************************************************************** -->
+            <div class="Whole_button">
+                {{#if Fname}}
+                <p class="clicking"> <a href="/logout">logout</a></p>
+                {{else}}
+
+                <p class="clicking"><a href="/User_Registration">Registration</a></p>
+                <p class="clicking"> <a href="/User_Registration">login</a></p>
+                {{/if}}
+            </div>
+            <div class="modal">
+                <div class="modal-content">
+                    <span class="closeBttn">&times;</span>
+                    <form id="html_form" action="/submit" method="post">
+                        <div class="title">
+                            <h3>Booking search form</h3>
+                            <img id="research" src="../data/img/research.jpg" alt="searching" />
+                        </div>
+                        <fieldset>
+                            <legend>Book Searching</legend>
+                            <div class="arrange">
+                                <div class="section">
+                                    <label for="checkin">Check-in Date <sup>*</sup></label>
+                                    <input id="checkin" type="date" name="checkin" required />
+                                </div>
+                                <div class="section">
+                                    <label for="checkout">Check-out Date <sup>*</sup></label>
+                                    <input id="checkout" type="date" name="checkout" required />
+                                </div>
+                                <div class="section">
+                                    <label for="Where_label">Where<sup>*</sup></label><br />
+                                    <input list="Where" id="Where_label" name="Where" placeholder="Show the city"
+                                        required />
+                                    <datalist id="Where">
+                                        <option value="Toronto"></option>
+                                        <option value="Montreal"></option>
+                                        <option value="Ottowa"></option>
+                                        <option value="Vancouver"></option>
+                                        <option value="London"></option>
+                                    </datalist>
+                                </div>
+
+                                <div class="section">
+                                    <label for="guests_label">guests<sup>*</sup></label><br />
+                                    <input list="guests" id="guests_label" name="guests" placeholder="How many guests"
+                                        required />
+                                    <datalist id="guests">
+                                        <option value="1"></option>
+                                        <option value="2"></option>
+                                        <option value="3"></option>
+                                        <option value="4"></option>
+                                    </datalist>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="submit-block">
+                            <input type="submit" value="Submit" />
+                            <input type="button" onclick="javascript:window.location=''" value="Cancel" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- ******************************************************************** -->
+        <nav id="three">
+            <img id="gif_1" src="../data/img/forrent.gif" alt="Renting" />
+            <img id="gif_2" src="../data/img/giphy.gif " alt="sold" />
+        </nav>
+    </nav>
+</header>

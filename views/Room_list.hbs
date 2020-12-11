@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Room_list</title>
+    {{!-- <script src="data/JS2/Room_list.js"></script> --}}
+
+    <link rel="stylesheet" href="data/CSS2/style2.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />>
+
+    {{>style}}
+</head>
+
+<body>
+
+    {{>header  userInfo }}
+    <nav class="bar_search">
+        <form class="example" action="/search" method="POST">
+            <input type="text" placeholder="Search location..." name="location">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </nav>
+
+    <main>
+
+        <div id="image">
+            {{#if UserAdmin}}
+            {{#if hasPhotos }} {{#each photos}}
+
+            <figure class="image_whole">
+
+                <figcaption class="caption">{{this.caption}}</figcaption><img class="Size_image"
+                    src="/photos/{{images}}" alt="Slide_image_7.jpg">
+                <p class="para_responsive" style="color: white; text-align: center;">{{this.description}}</p>
+                <div class="para_responsive_2" style="color: red; padding-bottom: 5px; text-align: center;">
+                    <p>&lt;Hover on
+                        the image for more details&gt; </p>
+                    <p style="color: red;">Uploaded: {{uploadDate}}</p>
+                </div>
+
+                <form action="/remove-photo/{{images}}" method="POST">
+                    <div class="remove" title="Remove photo">
+                        <button type="submit">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="overlay">
+                    <div class="DIV">
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fas fa-dollar-sign" aria-hidden="true" style="color: red;"></i>
+                            Price:{{this.price}} / night
+                        </p>
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fas fa-bed" aria-hidden="true" style="color: red;"></i> {{this.Bedroom}}
+                            bedrooms
+                        </p>
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fas fa-bath" aria-hidden="true" style="color: red;"></i> {{this.Bathroom}}
+                            Bathroom</p>
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fas fa-wifi" aria-hidden="true" style="color: red;"></i> WI-FI: {{this.WiFi}}
+                        </p>
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fa fa-map-marker" aria-hidden="true" style="color: red;"></i>
+                            {{this.location}}
+                        </p>
+                    </div>
+                </div>
+            </figure>
+
+            {{/each}} {{else}}
+            <div class="NoPhoto">
+                <p>
+                    You have no photos uploaded yet
+                </p>
+            </div>
+            {{/if}}
+            {{else}}
+            {{#if hasPhotos }} {{#each photos}}
+
+            <figure class="image_whole">
+
+                <figcaption class="caption">{{this.caption}}</figcaption><img class="Size_image"
+                    src="/photos/{{images}}" alt="Slide_image_7.jpg">
+                <p class="para_responsive" style="color: white; text-align: center;">{{this.description}}</p>
+                <div class="para_responsive_2" style="color: red; padding-bottom: 5px; text-align: center;">
+                    <p>&lt;Hover on
+                        the image for more details&gt; </p>
+                    <p style="color: red;">Uploaded: {{uploadDate}}</p>
+                    <a href="/Room_Description/{{_id}}">Get to Room Description</a>
+                </div>
+
+                <div class="overlay">
+                    <div class="DIV">
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fas fa-dollar-sign" aria-hidden="true" style="color: red;"></i>
+                            Price:{{this.price}} / night
+                        </p>
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fas fa-bed" aria-hidden="true" style="color: red;"></i> {{this.Bedroom}} bedrooms
+                        </p>
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fas fa-bath" aria-hidden="true" style="color: red;"></i> {{this.Bathroom}}
+                            Bathroom</p>
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fas fa-wifi" aria-hidden="true" style="color: red;"></i> WI-FI: {{this.WiFi}}</p>
+                        <p style="border: 5px outset white; padding: 10px; background-color: black;"><i
+                                class="fa fa-map-marker" aria-hidden="true" style="color: red;"></i> {{this.location}}
+                        </p>
+                    </div>
+                </div>
+            </figure>
+
+            {{/each}} {{else}}
+            <div class="NoPhoto">
+                <p>
+                    You have no photos uploaded yet
+                </p>
+            </div>
+            {{/if}}
+            {{/if}}
+        </div>
+
+
+    </main>
+
+    {{>footer}}
+
+
+</body>
+
+</html>

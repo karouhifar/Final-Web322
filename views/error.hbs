@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            background-color: rgb(247, 247, 247)
+        }
+
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: red;
+            animation-name: example;
+            animation-duration: 1000ms;
+            animation-iteration-count: infinite;
+        }
+
+        img {
+            width: 50%;
+            height: 50%;
+            float: right;
+            object-fit: cover;
+            object-position: 8em;
+        }
+
+        @media only screen and (max-width: 700px) {
+            h1 {
+                top: 46%;
+                left: 52%;
+            }
+
+            img {
+                width: 122%;
+                object-position: 4em;
+            }
+
+        }
+
+        @keyframes example {
+            0% {
+                color: red;
+            }
+
+            50% {
+                color: yellow;
+            }
+
+            100% {
+                color: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img src="data/img/Cat_404.png" alt="cat-404" />
+    <h1>404 <br />
+        Page not found <br />
+        Cat is eating your page
+    </h1>
+</body>
+
+</html>

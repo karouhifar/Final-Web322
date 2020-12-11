@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="data/CSS/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  {{> style}}
+</head>
+
+<body>
+
+  {{>header_home userInfo }}
+  <main>
+    <div class="whole_text">
+      <div class="Middle_text">
+        <p>Thanks for all sponsorships and financial estates which support us to
+          develop our business and web developing.</p>
+
+        <video width="500" height="200" muted controls autoplay loop>
+          <source src="data/img/Real_estate.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+    <div class="background_2">
+      <div class="center_text">
+        <span class="text">Serving better life</span>
+      </div>
+    </div>
+    <div class="whole_text_2">
+      <h1 style="text-align: center">Showing brief selling house photos</h1>
+      <div class="main_slide">
+
+        <div class="Slides_detail movement">
+
+          <img src="data/img/Slide_image_1.jpg" alt="Slide_image_1" />
+          <div class="Caption">Jungle Cottage hosted by Daniel
+
+          </div>
+        </div>
+
+        <div class="Slides_detail  movement">
+          <img src="data/img/Slide_image_2.jpg" alt="Slide_image_2" />
+          <div class="Caption">Snowy villa hosted by Jack
+          </div>
+        </div>
+
+        <div class="Slides_detail  movement">
+          <img src="data/img/Slide_image_3.jpg" alt="Slide_image_3" />
+          <div class="Caption">Bubble house hosted by Alicia
+          </div>
+        </div>
+        <div class="Slides_detail  movement">
+          <img src="data/img/Slide_image_4.jpg" alt="Slide_image_4" />
+          <div class="Caption"> Townhouse hosted by Zack
+          </div>
+        </div>
+        <div class="Slides_detail  movement">
+          <img src="data/img/Slide_image_5.jpg" alt="Slide_image_5" />
+          <div class="Caption">Bungalow hosted by Julie
+          </div>
+        </div>
+        <div class="Slides_detail  movement">
+          <img src="data/img/Slide_image_6.jpg" alt="Slide_image_6" />
+          <div class="Caption">Tropical villa hosted by Ali
+          </div>
+        </div>
+
+        <a class="prev" onclick="Move_slides(-1)">prev</a>
+        <a class="next" onclick="Move_slides(1)">next</a>
+
+      </div>
+    </div>
+
+
+
+    <div class="background_3">
+      <div class="center_text">
+        <span class="text">Comfortable life</span>
+      </div>
+    </div>
+  </main>
+
+  {{>footer}}
+
+  <script src="data/JS1/slide.js"></script>
+  <script src="data/JS1/Current_Time.js"></script>
+  <script src="data/JS1/popup.js"></script>
+
+  <script>
+    var Current_Time = new Date();
+    var y = Current_Time.getFullYear();
+    var m = Current_Time.getMonth() + 1;
+    var d = Current_Time.getDate();
+    var query = m + "/" + d + "/" + y;
+    document.getElementById("result2").innerHTML = query;
+  </script>
+
+</body>
+
+</html>

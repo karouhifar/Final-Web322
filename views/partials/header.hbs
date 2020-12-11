@@ -1,0 +1,185 @@
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    header {
+        height: 80px;
+        width: 100%;
+        background: url(../data/img/images.jpg);
+        background-attachment: fixed;
+    }
+
+    .title {
+        color: black;
+        font-size: 35px;
+        line-height: 80px;
+        padding: 0 100px;
+        font-weight: bolder;
+        animation-name: title;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+            #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+            #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+    }
+
+    /*-------------------------------------------------------*/
+    @keyframes title {
+        from {
+            text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+                #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+                #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+        }
+
+        to {
+            text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+                #ff5e00 0px 0px 20px, #ff8000 0px 0px 30px, #ff5e00 0px 0px 40px,
+                #ff5e00 0px 0px 50px, #ff8000 0px 0px 75px;
+        }
+    }
+
+
+    header ul {
+        float: right;
+        margin-right: 20px;
+
+    }
+
+    header ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+
+
+    }
+
+    header ul li a {
+        color: black;
+        background: white;
+        font-size: 25px;
+        font-weight: 900;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    }
+
+    a.active,
+    a:hover {
+        background: #1b9bff;
+        transition: .5s;
+    }
+
+    .checkbtn {
+        font-size: 30px;
+        color: black;
+        float: right;
+        line-height: 80px;
+        cursor: pointer;
+        display: none;
+        margin-right: 15px;
+    }
+
+    .title {
+        display: none;
+        color: white;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    #check {
+        display: none;
+    }
+
+    @media only screen and (max-width:1000px) {
+        .title {
+            font-size: 20px;
+            padding-left: 2px;
+        }
+
+        header ul li a {
+            font-size: 16px;
+
+        }
+
+    }
+
+    @media only screen and (max-width:600px) {
+        .checkbtn {
+            display: block;
+        }
+
+        ul {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #2c3e50;
+            top: 0;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+            z-index: 1;
+        }
+
+        header ul li {
+            display: block;
+        }
+
+        .title2 {
+            display: block;
+            top: 0;
+        }
+
+        header ul li a {
+            font-size: 20px;
+        }
+
+        a.active,
+        a:hover {
+            background: none;
+            color: #0082e6;
+            transition: .5s;
+        }
+
+        #check:checked~ul {
+            z-index: 2;
+            left: 0;
+        }
+
+
+    }
+</style>
+
+<header>
+
+    <label for="check" class="checkbtn">
+        <i class="fa fa-list"></i>
+    </label>
+    <input type="checkbox" id="check">
+    {{!-- <label class="title">{{this.data}}</label> --}}
+
+    <ul>
+        {{!-- <li class='title2'>{{this.data}}</li> --}}
+        <li><a href="/">Home</a></li>
+        <li><a href="/Room_list">Room_list</a></li>
+        <li><a href="/User_Registration">Registration</a></li>
+        {{#if Fname}}
+        <li><a href="/dashboard">Dashboard</a></li>
+        {{/if}}
+        {{#if Fname}}
+        <li><a href="/logout">Log out</a></li>
+        {{else}}
+        <li><a href="/login">Log in</a></li>
+        {{/if}}
+    </ul>
+</header>
