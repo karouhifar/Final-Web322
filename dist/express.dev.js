@@ -91,8 +91,8 @@ app.use("/", router);
 module.exports.transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.TO_EMAILS,
-    pass: process.env.PASSWORD
+    user: "web322.kamyab@gmail.com",
+    pass: "Javad12345"
   }
 }); //********************************************************************************//
 // ***********************     WE CHANGED TO MVC PATTERN     *************************************************//
