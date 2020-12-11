@@ -19,7 +19,15 @@
     {{>header  userInfo }}
     <nav class="bar_search">
         <form class="example" action="/search" method="POST">
-            <input type="text" placeholder="Search location..." name="location">
+            <input list="Location" id="location" type="text" placeholder="Search location..." name="location">
+            <datalist id="Location">
+                <option value="Chicago"></option>
+                <option value="Toronto"></option>
+                <option value="Moon"></option>
+                <option value="Nevada"></option>
+                <option value="Osaka"></option>
+                <option value="Amazon"></option>
+            </datalist>
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </nav>

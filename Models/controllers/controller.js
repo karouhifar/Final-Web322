@@ -405,7 +405,7 @@ module.exports.Room_Description=function(req, res){
 module.exports.Booking = function(req, res,next){
 
   let id_room = req.params.id;
- 
+  let guests = req.body.guests;
   let ReqCheckIn = req.body.checkin;
   let ResCheckOut = req.body.checkout;
 
@@ -439,7 +439,7 @@ module.exports.Booking = function(req, res,next){
   console.log(roomInfo[0].price);
    let rate = roomInfo[0].price * days;
   
-  res.render('book', {layout:false, room: roomInfo, rate: rate, days: days,userInfo:req.session.userInfo });
+  res.render('book', {layout:false, room: roomInfo, rate: rate, days: days,userInfo:req.session.userInfo,guests:guests });
   
   });
   

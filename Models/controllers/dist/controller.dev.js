@@ -379,6 +379,7 @@ module.exports.Room_Description = function (req, res) {
 
 module.exports.Booking = function (req, res, next) {
   var id_room = req.params.id;
+  var guests = req.body.guests;
   var ReqCheckIn = req.body.checkin;
   var ResCheckOut = req.body.checkout;
   var checkIn = moment(ReqCheckIn, 'YYYY/MM/DD');
@@ -407,7 +408,8 @@ module.exports.Booking = function (req, res, next) {
       room: roomInfo,
       rate: rate,
       days: days,
-      userInfo: req.session.userInfo
+      userInfo: req.session.userInfo,
+      guests: guests
     });
   });
 };
