@@ -22,8 +22,7 @@ var app = express(); // Creating application object
 
 // Setting up the middleware functions //
 //********************************************************************************//
-const userEmail = "web322.kamyab@gmail.com"
-const PasswordEmail = "Javad12345$"
+
 var  HTTP_PORT =process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({
     extended: false
@@ -77,8 +76,8 @@ app.use("/", router);
 module.exports.transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: userEmail,
-        pass: PasswordEmail
+        user: process.env.userEmail,
+        pass: process.env.PasswordEmail
     }
 });
 //********************************************************************************//
